@@ -1,9 +1,10 @@
-var path = requrie("path");
+var path = require("path");
 
 module.exports = {
-	entry: "./frontend/react_calculator.jsx",
+	context: __dirname,
+	entry: "./entry.jsx",
 	output: {
-		path: path.resolve(__dirname, "app", "assets", "javascripts"),
+		path: path.resolve(__dirname),
 		filename: "bundle.js"
 	},
 	devtool: "source-map",
