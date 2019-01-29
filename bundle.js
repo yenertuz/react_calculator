@@ -153,30 +153,53 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Calculator).call(this, props));
     _this.state = {
-      result: 0
+      result: 0,
+      num1: "",
+      num2: ""
     };
-    _this.increment = _this.increment.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.setNum1 = _this.setNum1.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.setNum2 = _this.setNum2.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.summarize = _this.summarize.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
   _createClass(Calculator, [{
-    key: "increment",
-    value: function increment(event) {
+    key: "setNum1",
+    value: function setNum1(e) {
       this.setState({
-        result: this.state.result + 1
+        num1: event.currentTarget.value
+      });
+    }
+  }, {
+    key: "setNum2",
+    value: function setNum2(e) {
+      this.setState({
+        num2: event.currentTarget.value
+      });
+    }
+  }, {
+    key: "summarize",
+    value: function summarize(e) {
+      e.preventDefault();
+      alert(JSON.stringify(this.state));
+      this.setState({
+        result: parseInt(this.state.num1) + parseInt(this.state.num2)
       });
     }
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-        style: {
-          backgroundColor: "red",
-          color: "yellow"
-        }
-      }, this.state.result), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.increment
-      }, "Add One"));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "RESULT = ", this.state.result), "NUM1: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.setNum1,
+        type: "text",
+        value: this.state.num1
+      }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "NUM2: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.setNum2,
+        type: "text",
+        value: this.state.num2
+      }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.summarize
+      }, "SUMMARIZE!"));
     }
   }]);
 
