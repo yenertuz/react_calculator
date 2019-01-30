@@ -37,7 +37,13 @@ input[type=text] {
 
 .result {
 	font-size: 25px;
-	font-family: sans-serif
+	font-family: sans-serif;
+	width: 100%;
+}
+
+.result:hover {
+	color: white;
+	background-color: orange;
 }
 
 .label {
