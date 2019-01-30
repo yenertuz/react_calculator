@@ -160,6 +160,9 @@ function (_React$Component) {
     _this.setNum1 = _this.setNum1.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.setNum2 = _this.setNum2.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.summarize = _this.summarize.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.subtract = _this.subtract.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.multiply = _this.multiply.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.divide = _this.divide.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -167,29 +170,54 @@ function (_React$Component) {
     key: "setNum1",
     value: function setNum1(e) {
       this.setState({
-        num1: event.currentTarget.value
+        num1: event.target.value
       });
+      console.log(JSON.stringify(this.state));
     }
   }, {
     key: "setNum2",
     value: function setNum2(e) {
       this.setState({
-        num2: event.currentTarget.value
+        num2: event.target.value
       });
+      console.log(JSON.stringify(this.state));
     }
   }, {
     key: "summarize",
     value: function summarize(e) {
       e.preventDefault();
-      alert(JSON.stringify(this.state));
       this.setState({
         result: parseInt(this.state.num1) + parseInt(this.state.num2)
       });
     }
   }, {
+    key: "subtract",
+    value: function subtract(e) {
+      e.preventDefault();
+      this.setState({
+        result: parseInt(this.state.num1) - parseInt(this.state.num2)
+      });
+    }
+  }, {
+    key: "multiply",
+    value: function multiply(e) {
+      e.preventDefault();
+      this.setState({
+        result: parseInt(this.state.num1) * parseInt(this.state.num2)
+      });
+    }
+  }, {
+    key: "divide",
+    value: function divide(e) {
+      e.preventDefault();
+      this.setState({
+        result: parseInt(this.state.num1) / parseInt(this.state.num2)
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "RESULT = ", this.state.result), "NUM1: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "JSON = ", JSON.stringify(this.state)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "RESULT = ", this.state.result), "NUM1: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.setNum1,
         type: "text",
         value: this.state.num1
@@ -198,8 +226,26 @@ function (_React$Component) {
         type: "text",
         value: this.state.num2
       }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        style: {
+          width: '200px'
+        },
         onClick: this.summarize
-      }, "SUMMARIZE!"));
+      }, "ADD!"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        style: {
+          width: '200px'
+        },
+        onClick: this.subtract
+      }, "SUBTRACT!"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        style: {
+          width: '200px'
+        },
+        onClick: this.multiply
+      }, "MULTIPLY!"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        style: {
+          width: '200px'
+        },
+        onClick: this.divide
+      }, "DIVIDE!"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
     }
   }]);
 
