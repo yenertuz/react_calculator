@@ -15,20 +15,19 @@ class Calculator extends React.Component {
 		this.subtract = this.subtract.bind(this);
 		this.multiply = this.multiply.bind(this);
 		this.divide = this.divide.bind(this);
+		this.clear = this.clear.bind(this);
 	}
 
 	setNum1(e) {
 		this.setState({
 			num1: event.target.value
 		});
-		console.log(JSON.stringify(this.state));
 	};
 
 	setNum2(e) {
 		this.setState({
 			num2: event.target.value
 		});
-		console.log(JSON.stringify(this.state));
 	};
 
 	summarize(e) {
@@ -59,17 +58,27 @@ class Calculator extends React.Component {
 		});
 	};
 
+	clear(e) {
+		e.preventDefault();
+		this.setState({
+			result: 0,
+			num1: "",
+			num2: ""
+		});
+	}
+
 	render() {
 		return (
 			<div>
-				<h1>JSON = {JSON.stringify(this.state)}</h1>
-				<h1>RESULT = {this.state.result}</h1>
-				NUM1: <input onChange={this.setNum1}  type="text" value={this.state.num1}></input> <br />
-				NUM2: <input onChange={this.setNum2}  type="text" value={this.state.num2}></input> <br /> <br />
-				<button style={{width: '200px'}}  onClick={this.summarize}>ADD!</button> <br />
-				<button style={{width: '200px'}} onClick={this.subtract}>SUBTRACT!</button> <br />
-				<button style={{width: '200px'}} onClick={this.multiply}>MULTIPLY!</button> <br />
-				<button style={{width: '200px'}} onClick={this.divide}>DIVIDE!</button> <br />
+				<span className="titles json">STATE => {JSON.stringify(this.state)}</span><br />
+				<span className="titles result">RESULT => {this.state.result}</span> <br />
+				<span className="label">NUM1: </span><input onChange={this.setNum1}  type="text" value={this.state.num1}></input> <br />
+				<span className="label">NUM2: </span><input onChange={this.setNum2}  type="text" value={this.state.num2}></input> <br /> <br />
+				<button className="summarize" onClick={this.summarize}>ADD</button> <br />
+				<button className="subtract" onClick={this.subtract}>SUBTRACT</button> <br />
+				<button className="multiply" onClick={this.multiply}>MULTIPLY</button> <br />
+				<button className="divide" onClick={this.divide}>DIVIDE</button> <br /><br />
+				<button className="clear" onClick={this.clear}>CLEAR</button>
 			</div>
 		);
 	}

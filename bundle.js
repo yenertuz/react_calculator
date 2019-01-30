@@ -163,6 +163,7 @@ function (_React$Component) {
     _this.subtract = _this.subtract.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.multiply = _this.multiply.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.divide = _this.divide.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.clear = _this.clear.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -172,7 +173,6 @@ function (_React$Component) {
       this.setState({
         num1: event.target.value
       });
-      console.log(JSON.stringify(this.state));
     }
   }, {
     key: "setNum2",
@@ -180,7 +180,6 @@ function (_React$Component) {
       this.setState({
         num2: event.target.value
       });
-      console.log(JSON.stringify(this.state));
     }
   }, {
     key: "summarize",
@@ -215,37 +214,50 @@ function (_React$Component) {
       });
     }
   }, {
+    key: "clear",
+    value: function clear(e) {
+      e.preventDefault();
+      this.setState({
+        result: 0,
+        num1: "",
+        num2: ""
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "JSON = ", JSON.stringify(this.state)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "RESULT = ", this.state.result), "NUM1: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "titles json"
+      }, "STATE => ", JSON.stringify(this.state)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "titles result"
+      }, "RESULT => ", this.state.result), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "label"
+      }, "NUM1: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.setNum1,
         type: "text",
         value: this.state.num1
-      }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "NUM2: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "label"
+      }, "NUM2: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.setNum2,
         type: "text",
         value: this.state.num2
       }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        style: {
-          width: '200px'
-        },
+        className: "summarize",
         onClick: this.summarize
-      }, "ADD!"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        style: {
-          width: '200px'
-        },
+      }, "ADD"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "subtract",
         onClick: this.subtract
-      }, "SUBTRACT!"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        style: {
-          width: '200px'
-        },
+      }, "SUBTRACT"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "multiply",
         onClick: this.multiply
-      }, "MULTIPLY!"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        style: {
-          width: '200px'
-        },
+      }, "MULTIPLY"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "divide",
         onClick: this.divide
-      }, "DIVIDE!"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
+      }, "DIVIDE"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "clear",
+        onClick: this.clear
+      }, "CLEAR"));
     }
   }]);
 
