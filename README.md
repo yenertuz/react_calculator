@@ -1,3 +1,3 @@
 # react_calculator
 
-https://appacademy.github.io/curriculum/calculator/
+**Live:** https://yenertuz.github.io/react_calculator
